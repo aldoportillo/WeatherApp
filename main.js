@@ -25,8 +25,26 @@ async function getWeather (location) {
         console.log("Wind " + weatherData.wind.deg)
         console.log("Wind Speed "+ weatherData.wind.speed)
         console.log(weather)
+
+        
     } catch (error){
         console.log("Location not found")
     }
 }
+
+const button = document.getElementById("submit");
+
+button.addEventListener("click", (e)=> {
+    let formInput = document.getElementById("location");
+
+    if (formInput) {
+        console.log(getWeather(formInput.value))
+        e.preventDefault()
+
+    }
+    
+
+})
+
+
 
