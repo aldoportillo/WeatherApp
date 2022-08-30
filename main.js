@@ -1,7 +1,17 @@
 //const button = document.getElementById("submit");
 const form = document.querySelector('form');
-const tempText = document.getElementById("temp")
 const input = document.getElementById('input')
+
+const locationName = document.getElementById("location")
+const tempText = document.getElementById("temp")
+const feelsLike = document.getElementById("feelsLike")
+const humidity = document.getElementById("humidity")
+const tempMin = document.getElementById("tempMin")
+const tempMax = document.getElementById("tempMax")
+const clouds = document.getElementById("clouds")
+const wind = document.getElementById("wind")
+
+
 
 async function getWeather (location) {
     try {
@@ -16,7 +26,14 @@ async function getWeather (location) {
             clouds: weatherData.weather[0].description,
             wind: weatherData.wind.deg,
         }
-        tempText.textContent = weather.feelsLike;
+        locationName.textContent = location;
+        tempText.textContent = weather.temperature;
+        feelsLike.textContent = weather.feelsLike;
+        humidity.textContent = weather.humidity;
+        tempMin.textContent = weather.tempMin;
+        tempMax.textContent = weather.tempMax;
+        clouds.textContent = weather.clouds;
+        wind.textContent = weather.wind;
     } catch (error){
         tempText.textContent = "Error"
     }
