@@ -13,3 +13,25 @@ body{
 h3,h4{
     color: antiquewhite;
 }
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.top-left {
+    display: flex;
+    align-items: flex-start;
+    height: auto;
+    width: 200px;
+    border: 1px solid wheat;
+    flex-direction: column;
+}
+
+.top-right{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    border: 1px solid wheat;
+}
