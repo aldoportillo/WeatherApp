@@ -11,6 +11,7 @@ const tempMax = document.getElementById("tempMax")
 const clouds = document.getElementById("clouds")
 const wind = document.getElementById("wind")
 const date = document.getElementById("date")
+const time = document.getElementById("time")
 
 
 
@@ -45,6 +46,8 @@ let monthArr = ["January","February","March","April","May","June","July",
 "August","September","October","November","December"];
 getWeather('chicago')
 
+//document.getElementById("container").style.background-image = "url(./Assets/rainyDay.webp)"
+
 const dateLocation = () => {
     let locationDate = new Date();
     return `${monthArr[locationDate.getMonth()]} ${locationDate.getDate()}, ${locationDate.getUTCFullYear()}`
@@ -63,3 +66,21 @@ form.addEventListener('submit', e => {
 })
 
 
+//Background is in body
+
+//document.body.background = "./Assets/rainyDay.webp"
+
+
+const setBackground = (time) => {
+    if (time > 6 && time <= 7){
+        document.body.background = "./Assets/sunrise.jpeg"
+    } else if (time > 7 && time <= 17 ){
+        document.body.background = "./Assets/day.jpeg"
+    } else if (time > 17 && time <= 18 ){
+        document.body.background = "./Assets/sunset.jpeg"
+    } else {
+        document.body.background = "./Assets/rainyDay.webp"
+    }
+}
+
+setBackground(time)
