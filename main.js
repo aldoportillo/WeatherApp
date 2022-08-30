@@ -39,6 +39,7 @@ async function getWeather (location) {
     }
 }
 
+getWeather('chicago')
 
 form.addEventListener('submit', e => {
     e.preventDefault();
