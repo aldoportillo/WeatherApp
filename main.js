@@ -10,6 +10,7 @@ const tempMin = document.getElementById("tempMin")
 const tempMax = document.getElementById("tempMax")
 const clouds = document.getElementById("clouds")
 const wind = document.getElementById("wind")
+const date = document.getElementById("date")
 
 
 
@@ -34,13 +35,22 @@ async function getWeather (location) {
         tempMax.textContent = weather.tempMax;
         clouds.textContent = weather.clouds;
         wind.textContent = weather.wind;
+        date.textContent = dateLocation();
     } catch (error){
         tempText.textContent = "Error"
     }
 }
 
+let monthArr = ["January","February","March","April","May","June","July",
+"August","September","October","November","December"];
 getWeather('chicago')
 
+const dateLocation = () => {
+    let locationDate = new Date();
+    return `${monthArr[locationDate.getMonth()]} ${locationDate.getDate()}, ${locationDate.getUTCFullYear()}`
+}
+
+dateLocation()
 form.addEventListener('submit', e => {
     e.preventDefault();
     const newInput = input.value;
