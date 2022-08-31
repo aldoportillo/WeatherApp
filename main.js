@@ -29,11 +29,11 @@ async function getWeather (location) {
             wind: weatherData.wind.deg,
         }
         locationName.textContent = location;
-        tempText.textContent = weather.temperature;
-        feelsLike.textContent = weather.feelsLike;
+        tempText.textContent = `${kToC(weather.temperature)} \u00B0C`;
+        feelsLike.textContent = `${kToC(weather.feelsLike)} \u00B0C`;
         humidity.textContent = weather.humidity;
-        tempMin.textContent = weather.tempMin;
-        tempMax.textContent = weather.tempMax;
+        tempMin.textContent = `${kToC(weather.tempMin)} \u00B0C`;
+        tempMax.textContent = `${kToC(weather.tempMax)} \u00B0C`;
         clouds.textContent = weather.clouds;
         wind.textContent = weather.wind;
         date.textContent = dateLocation();
@@ -65,6 +65,9 @@ form.addEventListener('submit', e => {
 
 })
 
+const kToC = (k) => {
+    return Math.floor(k -273.15)
+}
 
 //Background is in body
 
