@@ -28,13 +28,13 @@ async function getWeather (location) {
             clouds: weatherData.weather[0].description,
             wind: weatherData.wind.deg,
         }
-        locationName.textContent = location.charAt(0).toUpperCase() + location.slice(1);
+        locationName.textContent = capitalize(location);
         tempText.textContent = `${kToC(weather.temperature)} \u00B0C`;
         feelsLike.textContent = `${kToC(weather.feelsLike)} \u00B0C`;
         humidity.textContent = weather.humidity;
         tempMin.textContent = `${kToC(weather.tempMin)} \u00B0C`;
         tempMax.textContent = `${kToC(weather.tempMax)} \u00B0C`;
-        clouds.textContent = weather.clouds;
+        clouds.textContent = capitalize(weather.clouds);
         wind.textContent = weather.wind;
         date.textContent = dateLocation();
     } catch (error){
@@ -67,6 +67,17 @@ form.addEventListener('submit', e => {
 
 const kToC = (k) => {
     return Math.floor(k -273.15)
+}
+
+
+const capitalize = (str) => {
+    const arr = str.split(" ");
+
+    for (let i = 0; i < arr.length; i++) {
+        arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1)
+    }
+
+    return arr.join(" ")
 }
 
 //Background is in body
