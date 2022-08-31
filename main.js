@@ -28,7 +28,7 @@ async function getWeather (location) {
             clouds: weatherData.weather[0].description,
             wind: weatherData.wind.deg,
         }
-        locationName.textContent = location;
+        locationName.textContent = location.charAt(0).toUpperCase() + location.slice(1);
         tempText.textContent = `${kToC(weather.temperature)} \u00B0C`;
         feelsLike.textContent = `${kToC(weather.feelsLike)} \u00B0C`;
         humidity.textContent = weather.humidity;
