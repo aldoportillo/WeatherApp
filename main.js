@@ -26,16 +26,16 @@ async function getWeather (location) {
             tempMin: weatherData.main.temp_min,
             tempMax: weatherData.main.temp_max,
             clouds: weatherData.weather[0].description,
-            wind: weatherData.wind.deg,
+            wind: weatherData.wind.speed,
         }
         locationName.textContent = capitalize(location);
         tempText.textContent = `${kToC(weather.temperature)} \u00B0C`;
         feelsLike.textContent = `${kToC(weather.feelsLike)} \u00B0C`;
-        humidity.textContent = weather.humidity;
+        humidity.textContent = `${weather.humidity}%`;
         tempMin.textContent = `${kToC(weather.tempMin)} \u00B0C`;
         tempMax.textContent = `${kToC(weather.tempMax)} \u00B0C`;
         clouds.textContent = capitalize(weather.clouds);
-        wind.textContent = weather.wind;
+        wind.textContent = `${weather.wind} MPH`;
         date.textContent = dateLocation();
     } catch (error){
         tempText.textContent = "Error"
@@ -98,3 +98,17 @@ const setBackground = (time) => {
 }
 
 setBackground(time)
+
+// {"coord":{"lon":-87.65,"lat":41.85},
+// "weather":[{"id":800,"main":"Clear","description":"clear sky","icon":"01d"}],
+// "base":"stations",
+// "main":{"temp":297,"feels_like":297.24,"temp_min":293.94,"temp_max":298.8,"pressure":1008,"humidity":69},
+// "visibility":10000,
+// "wind":{"speed":0.45,"deg":315,"gust":0.89},
+// "clouds":{"all":0},
+// "dt":1662040782,
+// "sys":{"type":2,"id":2011010,"country":"US","sunrise":1662030993,"sunset":1662078304},
+// "timezone":-18000,
+// "id":4887398,
+// "name":"Chicago",
+// "cod":200}
