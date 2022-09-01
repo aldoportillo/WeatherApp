@@ -38,7 +38,15 @@ async function getWeather (location) {
         wind.textContent = `${weather.wind} MPH`;
         date.textContent = dateLocation();
     } catch (error){
-        tempText.textContent = "Error"
+        locationName.textContent = "Imagination Land";
+        tempText.textContent = "0K"
+        feelsLike.textContent = "0K"
+        humidity.textContent = `100%`;
+        tempMin.textContent = "0K"
+        tempMax.textContent = "273K"
+        clouds.textContent = "Clouds";
+        wind.textContent = "100 MPH";
+        date.textContent = dateLocation();
     }
 }
 
